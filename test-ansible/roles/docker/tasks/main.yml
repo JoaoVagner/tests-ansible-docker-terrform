@@ -1,0 +1,16 @@
+---
+  - name: atualizando tudo
+    shell: sudo apt-get update -y
+
+  - name: mudando hostname
+    shell: sudo hostname {{ inventory_hostname }}
+
+  - name: Instalando a versão mais recente do Docker
+    shell: sudo curl -sS https://get.docker.com | sudo sh
+
+  - name: restart no serviço do Docker
+    systemd:
+     state: restarted
+     enabled: yes
+     daemon_reload: yes
+     name: docker

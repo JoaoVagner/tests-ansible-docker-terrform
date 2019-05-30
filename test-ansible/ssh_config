@@ -1,0 +1,21 @@
+Host 10.0.0.*
+  ForwardAgent yes
+  User ubuntu
+  IdentityFile ~/.ssh/aws.pem
+  ProxyCommand ssh -vvvv -F /home/joaovagner/projects/icasei/test-ansible/ssh_config -W %h:%p nat.ec2
+
+Host 10.0.1.*
+  ForwardAgent yes
+  User ubuntu
+  IdentityFile ~/.ssh/aws.pem
+  ProxyCommand ssh -F /home/joaovagner/projects/icasei/test-ansible/ssh_config -W %h:%p nat.ec2
+
+Host nat.ec2
+  ForwardAgent yes
+  User ec2-user
+  Hostname IP_NAT_VAI_AQUI
+  IdentityFile ~/.ssh/aws.pem
+  ProxyCommand none
+  ControlMaster auto
+  ControlPath ~/.ssh/ansible-%r@%h:%p
+  ControlPersist 5m

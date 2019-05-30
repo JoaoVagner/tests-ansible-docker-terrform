@@ -1,0 +1,9 @@
+[docker_swarm_manager]
+MANAGER1 ansible_ssh_host=IP-manager-1 ansible_ssh_user=ubuntu
+MANAGER2 ansible_ssh_host=IP-manager-2 ansible_ssh_user=ubuntu
+MANAGER3 ansible_ssh_host=IP-manager-3 ansible_ssh_user=ubuntu
+
+[docker_swarm_worker]
+WORKER1 ansible_ssh_host=IP-WORKER-1 ansible_ssh_user=ubuntu
+WORKER2 ansible_ssh_host=IP-WORKER-2 ansible_ssh_user=ubuntu
+WORKER3 ansible_ssh_host=IP-WORKER-3 ansible_ssh_user=ubuntu
